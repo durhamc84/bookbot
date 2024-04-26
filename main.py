@@ -1,11 +1,6 @@
 def main():
-    book_path = "/home/durhamc84/workspace/github.com/durhamc84/bookbot/books/frankenstein.txt"
-    text = get_book_text(book_path)
-    num_words = count_words(text)
-    print(f"{num_words} words found in the document")
-    letter_count = count_letters(text)
-    print_report(book_path, num_words, letter_count)
-    
+    book_path = "/home/durhamc84/workspace/github.com/durhamc84/bookbot/books/frankenstein.txt"    
+    print_report(book_path)    
 
 def count_words(book):
     words = book.split()
@@ -37,12 +32,14 @@ def sort_letters(letter_dict):
     for item in new_list:
         print(f"The '{item["letter"]}' character was found {item["count"]} times")
 
-def print_report(book_path, num_words, letter_count):
+def print_report(book_path):
+    text = get_book_text(book_path)
+    num_words = count_words(text)
+    letter_count = count_letters(text)
     print(f"--- Begin report of {book_path} ---")
     print(f"{num_words} words found in document")
     print("")
     sort_letters(letter_count)
     print("--- End Report ---")
-
 
 main()
